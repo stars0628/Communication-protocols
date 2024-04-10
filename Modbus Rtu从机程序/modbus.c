@@ -190,8 +190,9 @@ unsigned char MB_Analyze_Execute(unsigned char *data, unsigned short count)
     unsigned short ExCode = EX_CODE_NONE;
     unsigned short tem_crc;
     MB_Parse_Data(data, count);//解析数据帧
-
-    if(MB_Data_Check(data,count) != EX_CODE_NONE) { //判断数据是否合法
+    
+    ExCode = MB_Data_Check(data,count); //判断数据是否合法
+    if(ExCode != EX_CODE_NONE) {
         return ExCode;
     }
     
